@@ -9,7 +9,7 @@ const JUMP_VELOCITY = 4.5
 
 # @export show var in inspector (GoDot) and can be edited there
 @export var sens = 0.5
-@export var x_clamp_neg = -60
+@export var x_clamp_neg = -90
 @export var x_clamp_pos = 15
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
