@@ -1,12 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://bkpdtj5rsbxgx"]
 
-[ext_resource type="Script" path="res://Player.gd" id="1_n3m0l"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_n3m0l"]
 [ext_resource type="PackedScene" uid="uid://beiig52p6jk1g" path="res://Assets/Player/Ch29_nonPBR.fbx" id="2_6wc70"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_42h3a"]
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_n3m0l")
+x_clamp_neg = 15
 
 [node name="BodyCol" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.85, 0, 0, 0, 0.7, 0, 0.784868, 0)
@@ -16,11 +17,11 @@ shape = SubResource("CapsuleShape3D_42h3a")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.29413, -0.0567605)
 
 [node name="SpringArm3D" type="SpringArm3D" parent="CamOrigin"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.568103, -0.191441, 0.448)
-spring_length = 0.45
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.514, 0.0599999, 0.448)
+spring_length = 0.15
 
 [node name="Camera3D" type="Camera3D" parent="CamOrigin"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.578724, -0.191441, 0.898)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.51417, 0.0600591, 0.598168)
 
 [node name="Model" parent="." instance=ExtResource("2_6wc70")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)

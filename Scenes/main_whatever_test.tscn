@@ -33,6 +33,7 @@ shape = SubResource("ConcavePolygonShape3D_mwoxf")
 
 [node name="Player" parent="." instance=ExtResource("1_0yc4n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.32134, 0)
+x_clamp_neg = -25
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(5, 0, 0, 0, 90, 0, 0, 0, 1, 0.183593, -0.262515, -9.48276)
