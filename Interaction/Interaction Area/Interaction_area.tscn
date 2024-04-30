@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Interaction/Interaction Area/Interaction_area.gd" id="1_ho2pu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xg57s"]
+size = Vector3(1.97754, 1, 1)
 
 [node name="InteractionArea" type="Area3D"]
 collision_layer = 2

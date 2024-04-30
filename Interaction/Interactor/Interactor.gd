@@ -7,7 +7,7 @@ var controller: Node3D
 func interact(interactable: Interactable) -> void:
 	interactable.interacted.emit(self)
 
-func focus(interactable: Interactable) -> void;
+func focus(interactable: Interactable) -> void:
 	interactable.focused.emit(self)
 
 func unfocus(interactable: Interactable) -> void:
@@ -20,12 +20,13 @@ func get_closest_interactable() -> Interactable:
 	var closest_distance: float = INF
 	var closest: Interactable = null
 
-	for interactable in list
+	for interactable in list:
 		distance = interactable.global_position.distance_to(global_position)
 
 
-		if distance < closest_distance
+		if distance < closest_distance:
 			closest = interactable as Interactable
 			closest_distance = distance
 
 	return closest
+

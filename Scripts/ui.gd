@@ -1,10 +1,12 @@
 extends Control
 
 @onready var dialogue = $Dialogue
+@onready var main_menu = $MainMenu
+@onready var debug = $DEBUG
 
 func _on_play_pressed():
 	world.load_game()
-	self.hide()
+	main_menu.hide()
 	# get_tree().change_scene_to_file("res://Scenes/main_whatever_test.tscn")
 
 

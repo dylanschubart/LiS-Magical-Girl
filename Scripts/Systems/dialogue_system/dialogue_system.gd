@@ -13,9 +13,9 @@ var dialogue_name_label: Label
 func start_dialogue(dialogue_path_string: String):
 	if finished:
 		dialogue_path = dialogue_path_string
-		get_tree().root.get_node("MainMenu").dialogue.show()
-		dialogue_text_label = get_tree().root.get_node("MainMenu").dialogue.text_label
-		dialogue_name_label = get_tree().root.get_node("MainMenu").dialogue.name_label
+		get_tree().root.get_node("UI").dialogue.show()
+		dialogue_text_label = get_tree().root.get_node("UI").dialogue.text_label
+		dialogue_name_label = get_tree().root.get_node("UI").dialogue.name_label
 		start()
 
 	
@@ -56,7 +56,7 @@ func nextPhrase() -> void:
 		# player.dialogue_finished = true
 		dialogue_text_label.text = ""
 		dialogue_name_label.text = ""
-		get_tree().root.get_node("MainMenu").dialogue.hide()
+		get_tree().root.get_node("UI").dialogue.hide()
 		return
 
 	finished = false

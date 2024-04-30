@@ -1,10 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://d0wkm82tj3atj"]
+[gd_scene load_steps=7 format=3 uid="uid://cmvaff8l8hi4i"]
 
-[ext_resource type="Script" path="res://Scripts/Main Menu.gd" id="1_k0w18"]
+[ext_resource type="Script" path="res://Scripts/ui.gd" id="1_l756d"]
 [ext_resource type="Script" path="res://Scripts/debug.gd" id="2_og8mx"]
 [ext_resource type="Script" path="res://Resources/example_ussage.gd" id="3_maika"]
 [ext_resource type="Script" path="res://Resources/example_ressource.gd" id="4_i2kr0"]
-[ext_resource type="Script" path="res://Scripts/Dialogue.gd" id="5_a4sr2"]
+[ext_resource type="Script" path="res://Scripts/dialogue.gd" id="5_3jw8x"]
 
 [sub_resource type="Resource" id="Resource_afj6f"]
 script = ExtResource("4_i2kr0")
@@ -14,32 +14,32 @@ example_bool = false
 example_array = Array[ExtResource("4_i2kr0")]([])
 enum_select = 0
 
-[node name="MainMenu" type="Control"]
+[node name="UI" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_k0w18")
+script = ExtResource("1_l756d")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MainMenu" type="MarginContainer" parent="."]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu"]
 layout_mode = 2
 
-[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Play" type="Button" parent="MainMenu/VBoxContainer"]
 layout_mode = 2
 text = "Play"
 
-[node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Options" type="Button" parent="MainMenu/VBoxContainer"]
 layout_mode = 2
 text = "Options"
 
-[node name="Exit" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Exit" type="Button" parent="MainMenu/VBoxContainer"]
 layout_mode = 2
 text = "Exit"
 
@@ -94,7 +94,7 @@ offset_top = -40.0
 offset_right = 497.0
 grow_horizontal = 2
 grow_vertical = 0
-script = ExtResource("5_a4sr2")
+script = ExtResource("5_3jw8x")
 
 [node name="Name" type="Label" parent="Dialogue"]
 layout_mode = 2
@@ -118,9 +118,9 @@ theme_override_font_sizes/normal_font_size = 16
 bbcode_enabled = true
 fit_content = true
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="MainMenu/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MainMenu/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MainMenu/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="DEBUG/VBoxContainer/Save" to="DEBUG" method="_on_save_pressed"]
 [connection signal="pressed" from="DEBUG/VBoxContainer/Load" to="DEBUG" method="_on_load_pressed"]
 [connection signal="pressed" from="DEBUG/VBoxContainer/Delete" to="DEBUG" method="_on_delete_pressed"]
