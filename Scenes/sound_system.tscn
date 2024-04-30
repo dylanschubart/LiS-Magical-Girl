@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxi67ciq5oqca"]
+
+[ext_resource type="Script" path="res://Scripts/Systems/SoundSystem/sound_system.gd" id="1_nx31a"]
+
+[node name="SoundSystem" type="Node"]
+script = ExtResource("1_nx31a")
+
+[node name="Voice" type="Node" parent="."]
+
+[node name="voiceline" type="AudioStreamPlayer" parent="Voice"]
+
+[node name="Sound" type="Node" parent="."]
+
+[node name="Music" type="Node" parent="."]
+
+[node name="Ambience" type="Node" parent="."]

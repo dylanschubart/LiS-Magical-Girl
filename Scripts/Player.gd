@@ -15,11 +15,18 @@ const JUMP_VELOCITY = 4.5
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+
+var dialogue_finished = true
+
 # For Capturing Mouse in Screen
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED	
 
 func _input(event):
+	# disables movement
+	if !dialogue_finished:
+		return
+
 	if event is InputEventMouseMotion:
 		# Rotate Player
 		rotate_y(deg_to_rad(-event.relative.x * sens))
@@ -31,6 +38,10 @@ func _input(event):
 
 
 func _physics_process(delta):
+	# disables movement
+	if !dialogue_finished:
+		return
+		
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta

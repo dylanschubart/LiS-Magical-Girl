@@ -1,5 +1,6 @@
 extends Control
 
+@onready var dialogue = $Dialogue
 
 func _on_play_pressed():
 	world.load_game()

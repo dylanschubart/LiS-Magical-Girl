@@ -18,6 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 world="*res://Scripts/world.gd"
+dialogue="*res://Scripts/Systems/dialogue_system/dialogue_system.gd"
+SoundSystem="*res://Scenes/sound_system.tscn"
 
 [editor_plugins]
 
