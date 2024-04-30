@@ -1,6 +1,6 @@
 # This Script should control the world and keep track of the saving, it will also be on the main scene
 
-class_name World
+class_name world_data
 extends Node
 
 var save: SaveData = SaveData.new()
