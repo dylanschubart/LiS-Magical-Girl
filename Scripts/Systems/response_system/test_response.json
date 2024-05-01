@@ -1,0 +1,25 @@
+[
+    {"loop": "movement"},
+    {"responses": [
+	    {
+		    "id": "1",
+            "text": "Hi",
+            "next": "dialogue_1"
+	    },
+	    {
+		    "id": "2",
+            "text": "Fuck off",
+            "next": "dialogue_2"
+	    },
+        {
+		    "id": "3",
+            "text": "Uhm? what?",
+            "next": "cutscene_1"
+	    },
+	    {
+		    "id": "4",
+            "text": "...",
+            "next": "exit"
+	    }
+    ]}
+]

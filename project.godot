@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 world="*res://Scripts/world.gd"
 dialogue="*res://Scripts/Systems/dialogue_system/dialogue_system.gd"
 SoundSystem="*res://Scenes/sound_system.tscn"
+responses="*res://Scripts/Systems/response_system/response_system.gd"
 
 [editor_plugins]
 

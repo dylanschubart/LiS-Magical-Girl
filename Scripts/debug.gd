@@ -30,3 +30,9 @@ func _on_change_example_pressed():
 
 func _on_start_test_dialogue_pressed():
 	dialogue.start_dialogue("res://Scripts/Systems/dialogue_system/test_dialogue.json")
+
+
+
+func _on_start_test_responses_pressed():
+	responses.start_response("res://Scripts/Systems/response_system/test_response.json")
+	

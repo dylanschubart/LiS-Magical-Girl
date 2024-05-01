@@ -1,6 +1,7 @@
 extends Control
 
 @onready var dialogue = $Dialogue
+@onready var responses = $Responses
 @onready var main_menu = $MainMenu
 @onready var debug = $DEBUG
 
