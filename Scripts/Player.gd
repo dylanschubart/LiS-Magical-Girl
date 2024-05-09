@@ -7,6 +7,7 @@ const JUMP_VELOCITY = 4.5
 # Set variable pivot to CamOrigin (@onready = loads var with scene)
 @onready var pivot = $CamOrigin
 
+
 # @export show var in inspector (GoDot) and can be edited there
 @export var sens = 0.5
 @export var x_clamp_neg = -90
@@ -16,15 +17,16 @@ const JUMP_VELOCITY = 4.5
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 
-var dialogue_finished = true
+var disabled_input = false
 
 # For Capturing Mouse in Screen
 func _ready():
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED	
+	pass
+	# Input.mouse_mode = Input.MOUSE_MODE_CAPTURED	
 
 func _input(event):
 	# disables movement
-	if !dialogue_finished:
+	if disabled_input:
 		return
 
 	if event is InputEventMouseMotion:
@@ -35,11 +37,10 @@ func _input(event):
 		# Limit up, down rotaton
 		pivot.rotation.x = clamp(pivot.rotation.x, deg_to_rad(x_clamp_neg), deg_to_rad(x_clamp_pos))
 
-
-
+	
 func _physics_process(delta):
 	# disables movement
-	if !dialogue_finished:
+	if disabled_input:
 		return
 		
 	# Add the gravity.
@@ -50,9 +51,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
-	# Exit game when Press ESC (or binded button to "quit")
-	if Input.is_action_just_pressed("Quit"):
-		get_tree().quit()
+
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -66,3 +65,6 @@ func _physics_process(delta):
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+
+
+	

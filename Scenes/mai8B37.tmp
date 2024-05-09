@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://3o6xsypo7kyn"]
+[gd_scene load_steps=13 format=3 uid="uid://3o6xsypo7kyn"]
 
 [ext_resource type="PackedScene" uid="uid://bkpdtj5rsbxgx" path="res://Scenes/player.tscn" id="1_0yc4n"]
 [ext_resource type="Script" path="res://Scenes/TestBox.gd" id="2_dejon"]
 [ext_resource type="PackedScene" uid="uid://dxu4l6v1jv7v4" path="res://Interaction/Interaction Area/Interaction_area.tscn" id="3_a42l7"]
+[ext_resource type="PackedScene" uid="uid://cko2no24rv3e8" path="res://Scenes/pause_menu.tscn" id="5_2rnq3"]
 
 [sub_resource type="Environment" id="Environment_qtc53"]
 
@@ -64,10 +65,11 @@ script = ExtResource("2_dejon")
 [node name="CollisionShape3D" parent="TestBox/InteractionArea" index="0"]
 shape = SubResource("BoxShape3D_lob1h")
 
+[node name="pause_menu" parent="." instance=ExtResource("5_2rnq3")]
+visible = false
+
 [connection signal="focused" from="TestBox/InteractionArea" to="TestBox" method="_on_interaction_area_focused"]
 [connection signal="interacted" from="TestBox/InteractionArea" to="TestBox" method="_on_interaction_area_interacted"]
 [connection signal="unfocused" from="TestBox/InteractionArea" to="TestBox" method="_on_interaction_area_unfocused"]
 
-[editable path="Player"]
-[editable path="Player/PlayerInteractor"]
 [editable path="TestBox/InteractionArea"]

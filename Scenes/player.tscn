@@ -11,7 +11,8 @@ height = 1.71119
 [sub_resource type="BoxShape3D" id="BoxShape3D_4gbak"]
 size = Vector3(1, 1.58359, 1.19727)
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["Player"]]
+process_mode = 1
 script = ExtResource("1_n3m0l")
 x_clamp_neg = 15
 

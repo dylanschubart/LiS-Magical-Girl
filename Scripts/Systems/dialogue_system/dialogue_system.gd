@@ -22,7 +22,7 @@ func start_dialogue(dialogue_path_string: String):
 func start():
 	print_debug("start")
 	# var player = get_tree().root.get_node("Player")
-	# player.dialogue_finished = false
+	# player.disabled_input = true
 
 	phraseNum = 0
 	dialog = getDialog()
@@ -53,7 +53,7 @@ func nextPhrase() -> void:
 	
 	if phraseNum >= len(dialog):
 		# var player = get_tree().root.get_node("Player")
-		# player.dialogue_finished = true
+		# player.disabled_input = false
 		dialogue_text_label.text = ""
 		dialogue_name_label.text = ""
 		get_tree().root.get_node("UI").dialogue.hide()

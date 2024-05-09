@@ -25,4 +25,5 @@ func change_scene(area_name: String):
 	var load_level = load(areas[area_name])
 	var instantiated_level = load_level.instantiate()
 	get_tree().root.add_child(instantiated_level)
-	
+
+

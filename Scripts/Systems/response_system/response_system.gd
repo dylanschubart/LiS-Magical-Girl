@@ -10,7 +10,7 @@ var response_array: Array
 
 func start_response(response_path_string: String):
 	#var player = get_tree().root.get_node("Player")
-	#player.dialogue_finished = true
+	#player.disabled_input = true
 
 	var ui = get_tree().root.get_node("UI");
 
