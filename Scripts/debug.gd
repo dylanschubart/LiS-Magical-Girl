@@ -34,5 +34,5 @@ func _on_start_test_dialogue_pressed():
 
 
 func _on_start_test_responses_pressed():
-	responses.start_response("res://Scripts/Systems/response_system/test_response.json")
+	responses.start_response("res://Scripts/Systems/response_system/test_response.json", "Test response")
 	
