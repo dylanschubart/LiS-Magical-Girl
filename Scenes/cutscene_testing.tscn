@@ -1,0 +1,78 @@
+[gd_scene load_steps=12 format=3 uid="uid://2gjeglsbjs38"]
+
+[ext_resource type="PackedScene" uid="uid://bkpdtj5rsbxgx" path="res://Scenes/player.tscn" id="1_yhf7r"]
+[ext_resource type="Script" path="res://Scenes/TestBox.gd" id="2_xj8m3"]
+[ext_resource type="PackedScene" uid="uid://dxu4l6v1jv7v4" path="res://Scenes/Interaction/InteractionArea/Interaction_area.tscn" id="3_rih2c"]
+
+[sub_resource type="Environment" id="Environment_hfbhg"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_gbvq2"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_e3w40"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_y1vt6"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_rtvnd"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4prd8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ava0"]
+albedo_color = Color(0.0705882, 0.109804, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6hoei"]
+
+[node name="Cutscene Testing" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, -18.4287, 29.4574, -10.28)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_hfbhg")
+
+[node name="Player" parent="." instance=ExtResource("1_yhf7r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.32134, 0)
+x_clamp_neg = -25
+
+[node name="Level" type="Node" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level"]
+transform = Transform3D(50, 0, 0, 0, 0.5, 0, 0, 0, 50, 0, 0, 0)
+mesh = SubResource("BoxMesh_gbvq2")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_e3w40")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Level"]
+transform = Transform3D(5, 0, 0, 0, 90, 0, 0, 0, 1, 0.183593, -0.262515, -9.48276)
+mesh = SubResource("BoxMesh_y1vt6")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/MeshInstance3D2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/MeshInstance3D2/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_rtvnd")
+
+[node name="TestBox" type="MeshInstance3D" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.86667, 1.09451, -1.24106)
+mesh = SubResource("BoxMesh_4prd8")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_2ava0")
+script = ExtResource("2_xj8m3")
+
+[node name="InteractionArea" parent="Level/TestBox" instance=ExtResource("3_rih2c")]
+
+[node name="CollisionShape3D" parent="Level/TestBox/InteractionArea" index="0"]
+shape = SubResource("BoxShape3D_6hoei")
+
+[connection signal="focused" from="Level/TestBox/InteractionArea" to="Level/TestBox" method="_on_interaction_area_focused"]
+[connection signal="interacted" from="Level/TestBox/InteractionArea" to="Level/TestBox" method="_on_interaction_area_interacted"]
+[connection signal="unfocused" from="Level/TestBox/InteractionArea" to="Level/TestBox" method="_on_interaction_area_unfocused"]
+
+[editable path="Player"]
+[editable path="Player/PlayerInteractor"]
+[editable path="Level/TestBox/InteractionArea"]

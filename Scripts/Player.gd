@@ -6,6 +6,7 @@ const JUMP_VELOCITY = 4.5
 
 # Set variable pivot to CamOrigin (@onready = loads var with scene)
 @onready var pivot = $CamOrigin
+@onready var player_camera = $CamOrigin/Camera3D
 
 
 # @export show var in inspector (GoDot) and can be edited there

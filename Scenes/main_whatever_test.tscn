@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://3o6xsypo7kyn"]
+[gd_scene load_steps=16 format=3 uid="uid://3o6xsypo7kyn"]
 
 [ext_resource type="PackedScene" uid="uid://bkpdtj5rsbxgx" path="res://Scenes/player.tscn" id="1_0yc4n"]
 [ext_resource type="Script" path="res://Scenes/TestBox.gd" id="2_dejon"]
 [ext_resource type="PackedScene" uid="uid://dxu4l6v1jv7v4" path="res://Scenes/Interaction/InteractionArea/Interaction_area.tscn" id="3_a42l7"]
+[ext_resource type="Script" path="res://Scripts/Systems/CutsceneSystem/cutscene_system.gd" id="4_sesqt"]
 
 [sub_resource type="Environment" id="Environment_qtc53"]
 
@@ -23,6 +24,129 @@ albedo_color = Color(0.0705882, 0.109804, 1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lob1h"]
 
+[sub_resource type="Animation" id="Animation_ogxtc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(6.15945, 2.55524, -8.18868)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Player:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(5.70475, 1.32134, -9.00617)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Player:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_72qq1"]
+resource_name = "Test Cutscene"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 2.55524, 1.13677), Vector3(6.15945, 2.55524, -8.18868), Vector3(2.40054, 1.54817, -12.3737)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(-0.284752, 1.38921, 0.0515348)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Player:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2, 3.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1.32134, 0), Vector3(5.70475, 1.32134, -9.00617), Vector3(4.47473, 0.650839, -11.5615), Vector3(1.92661, -0.0196627, -12.2647)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Player:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2, 3.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0.749671, 0), Vector3(0, 1.49934, 0)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["res://Scripts/Systems/dialogue_system/test_dialogue.json"],
+"method": &"play_dialogue"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nqfbf"]
+_data = {
+"RESET": SubResource("Animation_ogxtc"),
+"Test Cutscene": SubResource("Animation_72qq1")
+}
+
 [node name="Main Whatever Test" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -32,7 +156,7 @@ transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, -18.4287
 environment = SubResource("Environment_qtc53")
 
 [node name="Player" parent="." instance=ExtResource("1_0yc4n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.32134, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.70475, 1.32134, -9.00617)
 x_clamp_neg = -25
 
 [node name="Level" type="Node" parent="."]
@@ -68,6 +192,17 @@ script = ExtResource("2_dejon")
 
 [node name="CollisionShape3D" parent="Level/TestBox/InteractionArea" index="0"]
 shape = SubResource("BoxShape3D_lob1h")
+
+[node name="CutsceneSystem" type="Node" parent="."]
+script = ExtResource("4_sesqt")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CutsceneSystem"]
+libraries = {
+"": SubResource("AnimationLibrary_nqfbf")
+}
+
+[node name="Camera3D" type="Camera3D" parent="CutsceneSystem"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.15945, 2.55524, -8.18868)
 
 [connection signal="focused" from="Level/TestBox/InteractionArea" to="Level/TestBox" method="_on_interaction_area_focused"]
 [connection signal="interacted" from="Level/TestBox/InteractionArea" to="Level/TestBox" method="_on_interaction_area_interacted"]
