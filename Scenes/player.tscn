@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_n3m0l"]
 [ext_resource type="PackedScene" uid="uid://beiig52p6jk1g" path="res://Assets/Player/Ch29_nonPBR.fbx" id="2_6wc70"]
-[ext_resource type="PackedScene" uid="uid://d4mpy7fe3o2ie" path="res://Interaction/Interactor/PayerInteractor.tscn" id="3_3rds5"]
+[ext_resource type="PackedScene" uid="uid://d4mpy7fe3o2ie" path="res://Scripts/Interaction/Interactor/PayerInteractor.tscn" id="3_3rds5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_42h3a"]
 radius = 0.356081
@@ -29,6 +29,7 @@ spring_length = 0.15
 
 [node name="Camera3D" type="Camera3D" parent="CamOrigin"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.51417, 0.0600591, 0.598168)
+current = true
 
 [node name="Model" parent="." instance=ExtResource("2_6wc70")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)

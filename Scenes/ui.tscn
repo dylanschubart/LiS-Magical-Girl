@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://Resources/example_ressource.gd" id="4_i2kr0"]
 [ext_resource type="Script" path="res://Scripts/dialogue.gd" id="5_3jw8x"]
 [ext_resource type="Script" path="res://Scenes/Responses.gd" id="6_6bg6h"]
-[ext_resource type="PackedScene" uid="uid://cko2no24rv3e8" path="res://Scenes/pause_menu.tscn" id="7_h5qgp"]
+[ext_resource type="PackedScene" path="res://Scenes/pause_menu.tscn" id="7_h5qgp"]
 
 [sub_resource type="Resource" id="Resource_afj6f"]
 script = ExtResource("4_i2kr0")
