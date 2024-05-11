@@ -4,17 +4,17 @@ var response_path: String = ""
 
 var responses
 
-var finished = true
+var response_active = false
 
 var response_array: Array 
 
-func start_response(response_path_string: String):
-	#var player = get_tree().root.get_node("Player")
-	#player.dialogue_finished = true
+var response_selected_index;
+
+func start_response(response_path_string: String, prompt: String = ""):
 
 	var ui = get_tree().root.get_node("UI");
 
-	if finished:
+	if !response_active:
 		response_path = response_path_string
 		ui.responses.show()
 		response_array.append(ui.responses.response_1)
@@ -29,6 +29,8 @@ func start():
 
 	responses = getResponses()
 	assert(responses, "No info found") 
+
+	response_active = true
 
 	showResponses()
  
@@ -58,4 +60,25 @@ func showResponses():
 		count += 1
 		if count > 3:
 			break;
-		
+
+func _input(event):
+	var ui = get_tree().root.get_node("UI");
+
+	#if response_active:
+	if event.is_action_pressed("Forward") and ui.responses.response_3.is_visible_in_tree():
+		ui.responses.response_3.grab_focus()
+		response_selected_index = 3 
+		pass
+	if event.is_action_pressed("Backward") and ui.responses.response_4.is_visible_in_tree():
+		ui.responses.response_4.grab_focus()
+		response_selected_index = 4
+		pass
+	if event.is_action_pressed("Left") and ui.responses.response_1.is_visible_in_tree():
+		ui.responses.response_1.grab_focus()
+		response_selected_index = 1
+		pass
+	if event.is_action_pressed("Right") and ui.responses.response_2.is_visible_in_tree():
+		ui.responses.response_2.grab_focus()
+		response_selected_index = 2 
+		pass
+
