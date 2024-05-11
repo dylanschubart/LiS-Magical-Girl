@@ -135,6 +135,7 @@ bbcode_enabled = true
 fit_content = true
 
 [node name="Responses" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchor_bottom = 0.029
 offset_top = 400.0
@@ -158,6 +159,7 @@ text = "Choice 1"
 alignment = 2
 
 [node name="Response2" type="Button" parent="Responses"]
+layout_mode = 0
 offset_left = 660.0
 offset_top = 45.0
 offset_right = 725.0
@@ -214,7 +216,7 @@ theme_override_styles/focus = SubResource("StyleBoxLine_cpjbn")
 text = "Choice 4
 "
 
-[node name="Last_question" type="Label" parent="Responses"]
+[node name="Prompt" type="Label" parent="Responses"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
