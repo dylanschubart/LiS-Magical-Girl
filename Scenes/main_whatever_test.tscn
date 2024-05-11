@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bkpdtj5rsbxgx" path="res://Scenes/player.tscn" id="1_0yc4n"]
 [ext_resource type="Script" path="res://Scenes/TestBox.gd" id="2_dejon"]
-[ext_resource type="PackedScene" uid="uid://dxu4l6v1jv7v4" path="res://Interaction/Interaction Area/Interaction_area.tscn" id="3_a42l7"]
+[ext_resource type="PackedScene" uid="uid://dxu4l6v1jv7v4" path="res://Scenes/Interaction/InteractionArea/Interaction_area.tscn" id="3_a42l7"]
 
 [sub_resource type="Environment" id="Environment_qtc53"]
 
@@ -31,43 +31,48 @@ transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, -18.4287
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_qtc53")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(50, 0, 0, 0, 0.5, 0, 0, 0, 50, 0, 0, 0)
-mesh = SubResource("BoxMesh_uh861")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_mwoxf")
-
 [node name="Player" parent="." instance=ExtResource("1_0yc4n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.32134, 0)
 x_clamp_neg = -25
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+[node name="Level" type="Node" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level"]
+transform = Transform3D(50, 0, 0, 0, 0.5, 0, 0, 0, 50, 0, 0, 0)
+mesh = SubResource("BoxMesh_uh861")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_mwoxf")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Level"]
 transform = Transform3D(5, 0, 0, 0, 90, 0, 0, 0, 1, 0.183593, -0.262515, -9.48276)
 mesh = SubResource("BoxMesh_rbxu8")
+skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D2"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/MeshInstance3D2"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D2/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/MeshInstance3D2/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_31p2h")
 
-[node name="TestBox" type="MeshInstance3D" parent="."]
+[node name="TestBox" type="MeshInstance3D" parent="Level"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.86667, 1.09451, -1.24106)
 mesh = SubResource("BoxMesh_kcuo8")
+skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_l0pjq")
 script = ExtResource("2_dejon")
 
-[node name="InteractionArea" parent="TestBox" instance=ExtResource("3_a42l7")]
+[node name="InteractionArea" parent="Level/TestBox" instance=ExtResource("3_a42l7")]
 
-[node name="CollisionShape3D" parent="TestBox/InteractionArea" index="0"]
+[node name="CollisionShape3D" parent="Level/TestBox/InteractionArea" index="0"]
 shape = SubResource("BoxShape3D_lob1h")
 
-[connection signal="focused" from="TestBox/InteractionArea" to="TestBox" method="_on_interaction_area_focused"]
-[connection signal="interacted" from="TestBox/InteractionArea" to="TestBox" method="_on_interaction_area_interacted"]
-[connection signal="unfocused" from="TestBox/InteractionArea" to="TestBox" method="_on_interaction_area_unfocused"]
+[connection signal="focused" from="Level/TestBox/InteractionArea" to="Level/TestBox" method="_on_interaction_area_focused"]
+[connection signal="interacted" from="Level/TestBox/InteractionArea" to="Level/TestBox" method="_on_interaction_area_interacted"]
+[connection signal="unfocused" from="Level/TestBox/InteractionArea" to="Level/TestBox" method="_on_interaction_area_unfocused"]
 
 [editable path="Player"]
 [editable path="Player/PlayerInteractor"]
-[editable path="TestBox/InteractionArea"]
+[editable path="Level/TestBox/InteractionArea"]
