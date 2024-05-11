@@ -4,7 +4,8 @@ extends Node
 @onready var cutscene_camera = $Camera3D
 
 func _ready():
-    play_animation("Test Cutscene")
+    # play_animation("Test Cutscene")
+    pass
 
 
 func play_animation(animation_name: String):
