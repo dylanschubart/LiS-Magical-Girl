@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cmvaff8l8hi4i"]
+[gd_scene load_steps=10 format=3 uid="uid://cmvaff8l8hi4i"]
 
 [ext_resource type="Script" path="res://Scripts/ui.gd" id="1_l756d"]
 [ext_resource type="Script" path="res://Scripts/debug.gd" id="2_og8mx"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Scripts/dialogue.gd" id="5_3jw8x"]
 [ext_resource type="Script" path="res://Scenes/Responses.gd" id="6_6bg6h"]
 [ext_resource type="PackedScene" path="res://Scenes/pause_menu.tscn" id="7_h5qgp"]
+[ext_resource type="PackedScene" uid="uid://3su0wgvdnw02" path="res://Scenes/options.tscn" id="8_qjb2x"]
 
 [sub_resource type="Resource" id="Resource_afj6f"]
 script = ExtResource("4_i2kr0")
@@ -172,6 +173,10 @@ text = "Choice 4"
 horizontal_alignment = 1
 
 [node name="pause_menu" parent="." instance=ExtResource("7_h5qgp")]
+visible = false
+layout_mode = 1
+
+[node name="options" parent="." instance=ExtResource("8_qjb2x")]
 visible = false
 layout_mode = 1
 
