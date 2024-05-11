@@ -1,3 +1,3 @@
 extends Node
 
-var cutscene_player = $
+var cutscene_player = $Animation
